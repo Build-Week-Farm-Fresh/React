@@ -30,14 +30,14 @@ export default function CustomerOrder() {
     return (
         <section className="customer-order">
             <div>
+                <CustomerCard CustomerData={} key={} />
+            </div>
+            <div>
                 {order.map(item => {
                     return (
                         <ProduceCard ProduceData={item} key={item.id} />
                     )
                 })}
-            </div>
-            <div>
-                <CustomerCard CustomerData={} key={} />
             </div>
         </section>
     );
