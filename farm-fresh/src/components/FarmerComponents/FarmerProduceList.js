@@ -1,6 +1,4 @@
 // id, produce item, produce price, produce quantity
-// 
-
 
 import React from "react";
 import axios from 'axios';
