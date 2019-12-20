@@ -1,11 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       Farm Fresh Produce
+=======
+    Farm Fresh Produce
+>>>>>>> 65f4d100b1cbef7e5ba52b210b7c3520d0978d23
     </div>
   );
 }
