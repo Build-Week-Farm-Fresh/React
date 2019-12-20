@@ -1,14 +1,13 @@
-// items, quantity, farmer
-
+// customer name, item name, item quantity, order total, customer address, order date, order time
 
 import React from "react";
 import axios from 'axios';
 import ProduceCard from './ProduceCard';
-import CustomerCard from './CustomerCard';
+import CustomerCard from '../CustomerComponents/CustomerCard';
 
-export default function CustomerOrder() {
+export default function FarmerOrder() {
 
-    const [order, setOrder] = useState([]);
+    const [produceOrder, setProduceOrder] = useState([]);
 
 
     useEffect(() => {
@@ -16,30 +15,29 @@ export default function CustomerOrder() {
         axios
             .get(`INSERT API LINK`)
             .then(response => {
-                setOrder(response);
+                setProduce(response);
             })
             .catch(error => {
                 console.log('error', error)
             })
     }, []);
 
-    if (!order) {
-        return <div>Well, you gonna put something in your shopping cart? </div>
+    if (!produceOrder) {
+        return <div>'Sorry, no new business today ¯\_(ツ)_/¯' </div>
     }
 
     return (
-        <section className="customer-order">
+        <section className="product-list">
             <div>
                 <CustomerCard CustomerData={} key={} />
             </div>
             <div>
-                {order.map(item => {
+                {produceOrder.map(produce => {
                     return (
-                        <ProduceCard ProduceData={item} key={item.id} />
+                        <ProduceCard ProduceData={produce} key={produce.id} />
                     )
                 })}
             </div>
         </section>
     );
 }
-
