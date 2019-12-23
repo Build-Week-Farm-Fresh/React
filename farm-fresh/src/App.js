@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
+import CustomerOrder from './components/CustomerComponents/CustomerOrder';
 
 function App() {
   return (
     <div className="App">
       Farm Fresh Produce
+      <CustomerOrder />
     </div>
   );
 }
