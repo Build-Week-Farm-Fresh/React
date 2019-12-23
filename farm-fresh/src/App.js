@@ -1,10 +1,16 @@
 import React from 'react';
 import './App.css';
+import CustomerOrder from './components/CustomerComponents/CustomerOrder';
 
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
+      Farm Fresh Produce
+      <CustomerOrder />
+=======
     Farm Fresh Produce
+>>>>>>> ec4e3b039832d2ed8760e637737d703fef3cab02
     </div>
   );
 }
