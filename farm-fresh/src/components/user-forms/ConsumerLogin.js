@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom"
 
 
-export default function LogIn() {
+export default function ConsumerLogIn(props) {
     const credentials = { username: "", password: "" }
 
     const [userCreds, setUserCreds] = useState(credentials)
@@ -15,7 +16,7 @@ export default function LogIn() {
 
     return (
         <div className="login">
-            <h1>Login</h1>
+            <h2>Login for Consumers</h2>
             <form className="login-form">
                 
                 <input
@@ -32,7 +33,10 @@ export default function LogIn() {
                     value={userCreds.password}
                     onChange={handleChange}
                 />
-                <button className="on-submit" type="submit">Login</button>
+                <Link to="/customer-dashboard">
+                  <button type="submit">Login</button>
+                </Link>  
+                <p>Farmer? Click <span><Link to="/farmer-login">here</Link></span></p>
             </form>
         </div>    
     )

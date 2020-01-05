@@ -30,7 +30,7 @@ const produceItems = [
         name: 'coconut',
         price: '3.5',
         quantity: '9'
-    }s
+    }
 ]
 
 export default function CustomerOrder() {

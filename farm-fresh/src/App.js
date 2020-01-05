@@ -1,16 +1,23 @@
 import React from 'react';
 import './App.css';
-import {Link, Route, withRouter} from "react-router-dom"
-import Login from "./components/LogIn"
+import {Link, Route, withRouter, Switch} from "react-router-dom"
+import FarmerLogin from "./components/user-forms/FarmerLogin"
+import ConsumerLogin from "./components/user-forms/ConsumerLogin"
+import CustomerDashboard from "./components/CustomerComponents/CustomerDashboard"
+import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
+// import CustomerOrder from "./components/CustomerComponents/CustomerOrder"
 
 function App() {
 
   return (
     <div className="App">
-    Farm Fresh Produce
-
-    <Login />
-
+      <Switch>
+        <Route exact path="/" component={FarmerOrConsumer} />
+        <Route path="/farmer-login" component={FarmerLogin} />
+        <Route path="/consumer-login" component={ConsumerLogin} />
+        <Route path="/customer-dashboard" component={CustomerDashboard} />
+        {/* <Route path="/my-orders" component={CustomerOrder} /> */}
+      </Switch>
     </div>
   );
 }
