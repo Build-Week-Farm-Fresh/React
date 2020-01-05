@@ -1,15 +1,22 @@
 import React from 'react';
 import './App.css';
+import {Link, Route, withRouter} from "react-router-dom"
+import Login from "./components/LogIn"
 
 function App() {
+
   return (
     <div className="App">
     Farm Fresh Produce
+
+    <Login />
+
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
+
 
 
 // ENDPOINTS!!

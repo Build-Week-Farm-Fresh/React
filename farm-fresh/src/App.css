@@ -1,3 +1,15 @@
 .App {
   text-align: center;
 }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.on-submit {
+  width: 100px;
+}
