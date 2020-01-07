@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Button } from 'reactstrap';
+import { Button, CardImg } from 'reactstrap';
+import FarmLogo from './farm-fresh-logo.png';
 
 export default function FarmerLogIn(props) {
     const credentials = { username: "", password: "" }
@@ -14,8 +15,13 @@ export default function FarmerLogIn(props) {
         })
     }
 
+    let width = {
+        width: '250px'
+    };
+
     return (
         <div className="login">
+            <CardImg top width="20%" src={FarmLogo} alt="Farm Fresh logo" style={width} />
             <h2>Login for Farmers</h2>
             <form className="login-form">
 
