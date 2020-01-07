@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import { Button } from 'reactstrap';
 
 export default function FarmerLogIn(props) {
     const credentials = { username: "", password: "" }
@@ -17,7 +18,7 @@ export default function FarmerLogIn(props) {
         <div className="login">
             <h2>Login for Farmers</h2>
             <form className="login-form">
-                
+
                 <input
                     type="text"
                     name="username"
@@ -32,9 +33,9 @@ export default function FarmerLogIn(props) {
                     value={userCreds.password}
                     onChange={handleChange}
                 />
-                <button type="submit">Login</button>
+                <Button color="primary" type="submit">Login</Button>
                 <p>Consumer? Click <span><Link to="/consumer-login">here</Link></span></p>
             </form>
-        </div>    
+        </div>
     )
 }

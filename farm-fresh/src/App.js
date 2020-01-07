@@ -4,13 +4,18 @@ import { Link, Route, withRouter, Switch } from "react-router-dom"
 import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
 // import CustomerOrder from "./components/CustomerComponents/CustomerOrder"
+import FarmerCard from '../src/components/FarmerComponents/FarmerCard';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 
   return (
     <div className="App">
       Farm Fresh Produce
-      <CustomerOrder />
+      <FarmerLogin />
+      <FarmerCard />
+      {/* <CustomerOrder /> */}
     </div>
   );
 }
