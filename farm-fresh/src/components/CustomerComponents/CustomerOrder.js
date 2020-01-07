@@ -61,11 +61,11 @@ export default function CustomerOrder() {
     return (
         <section className="customer-order">
             <div>
-                <CustomerCard CustomerData={customer[0]} key={customer[0].id} />
+                {/* <CustomerCard CustomerData={customer[0]} key={customer[0].id} /> */}
             </div>
             <div>
                 {order.map(item => {
-                    console.log(customer);
+                    // console.log(customer);
                     console.log(item);
                     return (
                         <ProduceCard ProduceData={item} key={item.id} />

@@ -1,17 +1,16 @@
 // farmer name, farmer location, farmer items
-
-<div>HI THERE</div>
-
-
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import FarmerCard from '../FarmerComponents/FarmerCard';
+import CustomerOrder from './CustomerOrder';
 
+import { Link, Route } from "react-router-dom";
 
 export default function AvailableFarmers() {
 
     const [farmers, setFarmers] = useState([]);
 
+    const [order, setOrder] = useState([]);
 
     useEffect(() => {
 
@@ -38,6 +37,12 @@ export default function AvailableFarmers() {
                     )
                 })}
             </div>
+
+            <Link to="/">Customer Page</Link><br />
+            <Link to="/order/">Current Order</Link><br />
+
+            <Route exact path="/" />
+            <Route exact path="/order/" render={props => <CustomerOrder />} />
         </section>
     );
 }
