@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Link, Route, withRouter, Switch} from "react-router-dom"
+import { Link, Route, withRouter, Switch } from "react-router-dom"
 import FarmerLogin from "./components/user-forms/FarmerLogin"
 import ConsumerLogin from "./components/user-forms/ConsumerLogin"
 import CustomerDashboard from "./components/CustomerComponents/CustomerDashboard"
@@ -18,6 +18,7 @@ function App() {
         <Route path="/customer-dashboard" component={CustomerDashboard} />
         {/* <Route path="/my-orders" component={CustomerOrder} /> */}
       </Switch>
+      Farm Fresh Produce
     </div>
   );
 }
