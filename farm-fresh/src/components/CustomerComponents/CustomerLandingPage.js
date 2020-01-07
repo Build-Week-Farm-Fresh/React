@@ -16,10 +16,10 @@ export default function AvailableFarmers() {
     useEffect(() => {
 
         axios
-            .get(`https://farm-fresh-bw.herokuapp.com/`)
+            .get(`INSERT API LINK`)
             .then(response => {
                 console.log(response);
-                // setOrder(response);
+                setOrder(response);
             })
             .catch(error => {
                 console.log('error', error)
