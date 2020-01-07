@@ -1,8 +1,14 @@
 import React from 'react';
 import './App.css';
-import CustomerOrder from './components/CustomerComponents/CustomerOrder';
+import { Link, Route, withRouter, Switch } from "react-router-dom"
+import FarmerLogin from "./components/user-forms/FarmerLogin"
+import ConsumerLogin from "./components/user-forms/ConsumerLogin"
+import CustomerDashboard from "./components/CustomerComponents/CustomerDashboard"
+import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
+// import CustomerOrder from "./components/CustomerComponents/CustomerOrder"
 
 function App() {
+
   return (
     <div className="App">
       Farm Fresh Produce
@@ -11,7 +17,8 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
+
 
 
 // ENDPOINTS!!

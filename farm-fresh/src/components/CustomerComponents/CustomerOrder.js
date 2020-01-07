@@ -33,29 +33,8 @@ const produceItems = [
     {
         name: 'coconut',
         price: '3.5',
-        quantity: '9',
-        id: '5'
+        quantity: '9'
     }
-]
-
-const customer = [
-    {
-        name: 'gunner',
-        email: 'gunner@gunner.com',
-        address: 'someplace',
-        id: '12'
-    }
-    // ,
-    // {
-    //     name: 'ory',
-    //     email: 'ory@ory.com',
-    //     address: 'another place'
-    // },
-    // {
-    //     name: 'py',
-    //     email: 'py@py.com',
-    //     address: 'that place'
-    // }
 ]
 
 export default function CustomerOrder() {
