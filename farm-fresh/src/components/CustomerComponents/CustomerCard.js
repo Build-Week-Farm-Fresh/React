@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardText, CardImg } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
 export default function CustomerCard({ CustomerData }) {
     return (

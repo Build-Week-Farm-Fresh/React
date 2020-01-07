@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import FarmerCard from '../FarmerComponents/FarmerCard';
 import CustomerOrder from './CustomerOrder';
+import CustomerDashboard from './CustomerDashboard';
 
 import { Link, Route } from "react-router-dom";
 
@@ -15,9 +16,10 @@ export default function AvailableFarmers() {
     useEffect(() => {
 
         axios
-            .get(`INSERT API LINK`)
+            .get(`https://farm-fresh-bw.herokuapp.com/`)
             .then(response => {
-                setOrder(response);
+                console.log(response);
+                // setOrder(response);
             })
             .catch(error => {
                 console.log('error', error)
@@ -40,9 +42,13 @@ export default function AvailableFarmers() {
 
             <Link to="/">Customer Page</Link><br />
             <Link to="/order/">Current Order</Link><br />
+            <Link to="/dashboard/">Your Dashboard</Link><br />
+
 
             <Route exact path="/" />
             <Route exact path="/order/" render={props => <CustomerOrder />} />
+            <Route exact path="/dashboard/" render={props => <CustomerDashboard />} />
+
         </section>
     );
 }

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import ProduceCard from '../ProduceCard';
-import CustomerCard from './CustomerCard';
+// import CustomerCard from './CustomerCard';
 
 const produceItems = [
     {
