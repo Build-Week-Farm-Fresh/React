@@ -11,6 +11,7 @@ function App() {
 
   return (
     <div className="App">
+
       <Switch>
         <Route exact path="/" component={FarmerOrConsumer} />
         <Route path="/farmer-login" component={FarmerLogin} />
@@ -19,6 +20,8 @@ function App() {
         {/* <Route path="/my-orders" component={CustomerOrder} /> */}
       </Switch>
       Farm Fresh Produce
+      Farm Fresh Produce
+      <CustomerOrder />
     </div>
   );
 }

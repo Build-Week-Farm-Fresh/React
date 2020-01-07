@@ -2,7 +2,7 @@
 
 import React from "react";
 import axios from 'axios';
-import ProduceCard from './ProduceCard';
+import ProduceCard from '../ProduceCard';
 import CustomerCard from '../CustomerComponents/CustomerCard';
 
 export default function FarmerOrder() {
