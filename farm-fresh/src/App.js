@@ -1,19 +1,30 @@
 import React from 'react';
 import './App.css';
+import { Link, Route, withRouter, Switch } from "react-router-dom"
+import FarmerLogin from "./components/user-forms/FarmerLogin"
+import ConsumerLogin from "./components/user-forms/ConsumerLogin"
+import CustomerDashboard from "./components/CustomerComponents/CustomerDashboard"
+import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
+// import CustomerOrder from "./components/CustomerComponents/CustomerOrder"
 
 function App() {
+
   return (
     <div className="App">
-<<<<<<< HEAD
+      <Switch>
+        <Route exact path="/" component={FarmerOrConsumer} />
+        <Route path="/farmer-login" component={FarmerLogin} />
+        <Route path="/consumer-login" component={ConsumerLogin} />
+        <Route path="/customer-dashboard" component={CustomerDashboard} />
+        {/* <Route path="/my-orders" component={CustomerOrder} /> */}
+      </Switch>
       Farm Fresh Produce
-=======
-    Farm Fresh Produce
->>>>>>> 65f4d100b1cbef7e5ba52b210b7c3520d0978d23
     </div>
   );
 }
 
-export default App;
+export default withRouter(App);
+
 
 
 // ENDPOINTS!!
