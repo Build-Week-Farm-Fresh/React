@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import { Link, Route, withRouter, Switch } from "react-router-dom"
+import { Link, Route, withRouter, Switch } from "react-router-dom";
 import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
 // import CustomerOrder from "./components/CustomerComponents/CustomerOrder"
 import FarmerCard from '../src/components/FarmerComponents/FarmerCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CustomerLandginPage from './components/CustomerComponents/CustomerLandingPage';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       Farm Fresh Produce
       <FarmerLogin />
       <FarmerCard />
+      <CustomerLandginPage />
       {/* <CustomerOrder /> */}
     </div>
   );
