@@ -4,9 +4,11 @@ export const axiosWithAuth = () => {
   const token = localStorage.getItem('token');
 
   return axios.create({
-    baseURL: '',
+    baseURL: 'https://farm-fresh-backend.herokuapp.com/api/auth',
     headers: {
       Authorization: token
     }
   });
 };
+
+export default axiosWithAuth()

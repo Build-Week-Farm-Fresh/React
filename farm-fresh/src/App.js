@@ -1,23 +1,53 @@
 import React from 'react';
 import './App.css';
+import { logout } from './store/actions'
+import { connect } from 'react-redux'
+import Loader from 'react-loader-spinner'
+
 import {Link, Route, withRouter, Switch} from "react-router-dom"
 import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
-// import CustomerOrder from "./components/CustomerComponents/CustomerOrder"
+import FarmerDashboard from './components/FarmerComponents/FarmerDashboard'
+import PrivateRoute from './utils/PrivateRoute'
 
-function App() {
 
+function App(props) {
+
+  if (props.loginStart) {
+    return(
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100vh'
+      }}>
+        <Loader type="Puff" width={100} height={100}/>
+      </div>
+    )
+  }
   return (
     <div className="App">
+      <nav>
+        <p onClick={()=>{props.logout(props.history)}}>LOG OUT</p>
+      </nav>
       <Switch>
         <Route exact path="/" component={FarmerOrConsumer} />
         <Route path="/farmer-login" component={FarmerLogin} />
+        <PrivateRoute path="/farmer-dashboard" component={FarmerDashboard} />
       </Switch>
     </div>
   );
 }
 
-export default withRouter(App);
+const mapStateToProps = state => ({
+  loginStart: state.loginStart
+})
+
+export default connect(
+  mapStateToProps,
+  { logout }
+)(withRouter(App))
 
 
 
