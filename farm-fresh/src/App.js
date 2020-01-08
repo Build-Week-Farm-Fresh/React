@@ -14,6 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomerLandginPage from './components/CustomerComponents/CustomerLandingPage';
 
 
+
 function App(props) {
 
   if (props.loginStart) {
