@@ -35,7 +35,7 @@ function Login(props) {
         <input type = "text" name="username" placeholder="username" value={creds.username} onChange={handleChange}></input>
         <input type = "password" name="password" placeholder="password" value={creds.password} onChange={handleChange}></input>
   
-        <Button color="primary" type="submit"> Log In </button>
+        <Button color="primary" type="submit"> Log In </Button>
       </form>
   
       {props.loginError && 
