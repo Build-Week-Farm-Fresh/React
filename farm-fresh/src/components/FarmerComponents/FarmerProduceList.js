@@ -1,10 +1,8 @@
 // id, produce item, produce price, produce quantity
-// 
-
 
 import React from "react";
 import axios from 'axios';
-import ProduceCard from './ProduceCard';
+import ProduceCard from '../ProduceCard';
 
 export default function ProduceList() {
 
