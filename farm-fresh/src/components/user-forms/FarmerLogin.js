@@ -1,6 +1,9 @@
 import React, { useState } from "react"
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { Button, CardImg } from 'reactstrap';
+import FarmLogo from './farm-fresh-logo.png';
+
 
 import {login} from '../../store/actions/index.js'
 
@@ -19,20 +22,26 @@ function Login(props) {
     e.preventDefault()
    props.login(creds, props.history)
   }
-
+  
+  let width = {
+      width: '250px'
+  };
+  
   return (
-   <>
-      <form onSubmit={onSubmit}>
+   <div className="login">
+      <CardImg top width="20%" src={FarmLogo} alt="Farm Fresh logo" style={width} />
+      <h2>Login for Farmers</h2>
+      <form className="login-form" onSubmit={onSubmit}>
         <input type = "text" name="username" placeholder="username" value={creds.username} onChange={handleChange}></input>
         <input type = "password" name="password" placeholder="password" value={creds.password} onChange={handleChange}></input>
   
-        <button type="submit"> Log In </button>
+        <Button color="primary" type="submit"> Log In </button>
       </form>
   
       {props.loginError && 
       <p style={{ color: 'red', marginTop: '10vh'}}>Username or password is incorrect. Please try again.</p>
       }
-   </>
+   </div>
   )
 }
 

@@ -9,6 +9,9 @@ import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
 import FarmerDashboard from './components/FarmerComponents/FarmerDashboard'
 import PrivateRoute from './utils/PrivateRoute'
+import FarmerCard from '../src/components/FarmerComponents/FarmerCard';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CustomerLandginPage from './components/CustomerComponents/CustomerLandingPage';
 
 
 function App(props) {
