@@ -2,23 +2,23 @@ import React from 'react';
 import './App.css';
 import { logout } from './store/actions'
 import { connect } from 'react-redux'
-import Loader from 'react-loader-spinner'
+// import Loader from 'react-loader-spinner'
 
-import {Link, Route, withRouter, Switch} from "react-router-dom"
+import { Link, Route, withRouter, Switch } from "react-router-dom"
 import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
 import FarmerDashboard from './components/FarmerComponents/FarmerDashboard'
 import PrivateRoute from './utils/PrivateRoute'
 import FarmerCard from '../src/components/FarmerComponents/FarmerCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CustomerLandginPage from './components/CustomerComponents/CustomerLandingPage';
+import CustomerLandingPage from './components/CustomerComponents/CustomerLandingPage';
 
 
 
 function App(props) {
 
   if (props.loginStart) {
-    return(
+    return (
       <div style={{
         display: 'flex',
         justifyContent: 'center',
@@ -26,14 +26,14 @@ function App(props) {
         width: '100%',
         height: '100vh'
       }}>
-        <Loader type="Puff" width={100} height={100}/>
+        {/* <Loader type="Puff" width={100} height={100} /> */}
       </div>
     )
   }
   return (
     <div className="App">
       <nav>
-        <p onClick={()=>{props.logout(props.history)}}>LOG OUT</p>
+        <p onClick={() => { props.logout(props.history) }}>LOG OUT</p>
       </nav>
       <Switch>
         <Route exact path="/" component={FarmerOrConsumer} />

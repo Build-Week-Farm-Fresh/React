@@ -6,6 +6,8 @@ import CustomerOrder from './CustomerOrder';
 import CustomerDashboard from './CustomerDashboard';
 
 import { Link, Route } from "react-router-dom";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import ProduceCard from "../ProduceCard";
 
 export default function AvailableFarmers() {
 
@@ -13,13 +15,16 @@ export default function AvailableFarmers() {
 
     const [order, setOrder] = useState([]);
 
+
     useEffect(() => {
 
-        axios
-            .get(`INSERT API LINK`)
+
+
+        axiosWithAuth()
+            .get(`/produce/user/1`)
             .then(response => {
                 console.log(response);
-                setOrder(response);
+                setOrder(response.data);
             })
             .catch(error => {
                 console.log('error', error)
@@ -33,9 +38,9 @@ export default function AvailableFarmers() {
     return (
         <section className="farmer-list">
             <div>
-                {farmers.map(item => {
+                {order.map(item => {
                     return (
-                        <FarmerCard FarmerData={item} key={item.id} />
+                        <ProduceCard ProduceData={item} key={item.id} />
                     )
                 })}
             </div>
