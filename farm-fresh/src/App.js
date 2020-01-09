@@ -3,7 +3,6 @@ import './App.css';
 import { logout } from './store/actions'
 import { connect } from 'react-redux'
 // import Loader from 'react-loader-spinner'
-
 import { Link, Route, withRouter, Switch } from "react-router-dom"
 import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
@@ -15,13 +14,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomerLandingPage from './components/CustomerComponents/CustomerLandingPage';
 import FarmerProduceList from './components/FarmerComponents/FarmerProduceList'
 import CustomerLogin from './components/user-forms/CustomerLogin'
-// import CustomerLandginPage from './components/CustomerComponents/CustomerLandingPage';
-
-
 
 
 function App(props) {
-
   if (props.loginStart) {
     return (
       <div style={{
@@ -45,23 +40,20 @@ function App(props) {
         <Route path="/farmer-login" component={FarmerLogin} />
         <Route path="/customer-login" component={CustomerLogin} />
         <PrivateRoute path="/farmer-dashboard" component={FarmerDashboard} />
-        <PrivateRoute path="/customer-dashboard" component={CustomerDashboard} />
+        <PrivateRoute path="/customer-dashboard" component={CustomerLandingPage} />
         <PrivateRoute path="/myproduce" exact component={localStorage.getItem("token") ? FarmerProduceList : FarmerLogin}
-/>
+        />
       </Switch>
     </div>
   );
 }
-
 const mapStateToProps = state => ({
   loginStart: state.loginStart
 })
-
 export default connect(
   mapStateToProps,
   { logout }
 )(withRouter(App))
-
 
 
 
