@@ -6,9 +6,11 @@ import {
 } from '../actions';
 
 const initialState = {
-  token: false,
+  token: null,
   loginStart: false,
-  loginError: false
+  loginError: false,
+  getProduceStart: false,
+  getProduceError: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -36,7 +38,7 @@ const reducer = (state = initialState, action) => {
     case LOGOUT:
       return {
         ...state,
-        token: false
+        token: null
       };
 
     default:
