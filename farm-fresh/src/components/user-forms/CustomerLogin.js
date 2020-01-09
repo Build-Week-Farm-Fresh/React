@@ -5,9 +5,9 @@ import { Button, CardImg } from 'reactstrap';
 import FarmLogo from './farm-fresh-logo.png';
 
 
-import {login} from '../../store/actions/index.js'
+import {customerLogin} from '../../store/actions/index.js'
 
-function FarmerLogin(props) {
+function CustomerLogin(props) {
   
   const [userCreds, setUserCreds] = useState({})
 
@@ -20,7 +20,7 @@ function FarmerLogin(props) {
 
   const onSubmit = e => {
     e.preventDefault()
-   props.login(userCreds, props.history)
+   props.customerLogin(userCreds, props.history)
   }
   
   let width = {
@@ -30,7 +30,7 @@ function FarmerLogin(props) {
   return (
    <div className="login">
       <CardImg top width="20%" src={FarmLogo} alt="Farm Fresh logo" style={width} />
-      <h2>Login for Farmers</h2>
+      <h2>Login for Customers</h2>
       <form className="login-form" onSubmit={onSubmit}>
         <input type = "text" name="username" placeholder="username" value={userCreds.username} onChange={handleChange}></input>
         <input type = "password" name="password" placeholder="password" value={userCreds.password} onChange={handleChange}></input>
@@ -46,10 +46,10 @@ function FarmerLogin(props) {
 }
 
 const mapStateToProps = state => ({
-  loginError: state.loginError
+  customerLoginError: state.customerLoginError
 })
 
 export default connect(
   mapStateToProps,
-  { login }
-  )(withRouter(FarmerLogin))
+  { customerLogin }
+  )(withRouter(CustomerLogin))

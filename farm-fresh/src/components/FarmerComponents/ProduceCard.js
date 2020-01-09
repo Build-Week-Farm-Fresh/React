@@ -9,9 +9,11 @@ export default function ProduceCard({ ProduceData }) {
                 {/* <CardImg src={ProduceData.image} /> */}
                 <CardBody>
                     <CardText>Price: {ProduceData.price} </CardText>
-                    {/* <CardText>Available quantity: {ProduceData.quantity} </CardText> */}
+                    <CardText>Available quantity: {ProduceData.quantity} </CardText>
                 </CardBody>
             </Card>
+            <button>edit</button>
+            <button>delete</button>
         </div>
     )
 }

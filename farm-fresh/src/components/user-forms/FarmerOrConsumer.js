@@ -10,8 +10,8 @@ export default function Login() {
     <Link to="/farmer-login">
       <button>Farmer</button>
     </Link>
-    <Link to="/consumer-login">
-      <button>Consumer</button>
+    <Link to="/customer-login">
+      <button>Customer</button>
     </Link>
     </>  
   )
