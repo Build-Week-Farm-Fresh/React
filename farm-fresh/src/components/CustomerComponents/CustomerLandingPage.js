@@ -1,13 +1,13 @@
 // farmer name, farmer location, farmer items
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-import FarmerCard from '../FarmerComponents/FarmerCard';
-import CustomerOrder from './CustomerOrder';
+// import FarmerCard from '../FarmerComponents/FarmerCard';
+// import CustomerOrder from './CustomerOrder';
 import CustomerDashboard from './CustomerDashboard';
 
 import { Link, Route } from "react-router-dom";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-import ProduceCard from "../ProduceCard";
+import ProduceCard from "../FarmerComponents/ProduceCard"
 
 export default function AvailableFarmers() {
 
@@ -51,7 +51,7 @@ export default function AvailableFarmers() {
 
 
             <Route exact path="/" />
-            <Route exact path="/order/" render={props => <CustomerOrder />} />
+            {/* <Route exact path="/order/" render={props => <CustomerOrder />} /> */}
             <Route exact path="/dashboard/" render={props => <CustomerDashboard />} />
 
         </section>
