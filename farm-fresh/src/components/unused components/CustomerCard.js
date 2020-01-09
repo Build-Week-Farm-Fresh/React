@@ -1,4 +1,4 @@
-import React from "react";
+git import React from "react";
 import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
 export default function CustomerCard({ CustomerData }) {

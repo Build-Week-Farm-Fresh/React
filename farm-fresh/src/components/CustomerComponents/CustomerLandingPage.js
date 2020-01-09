@@ -1,13 +1,13 @@
 // farmer name, farmer location, farmer items
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-// import FarmerCard from '../FarmerComponents/FarmerCard';
-// import CustomerOrder from './CustomerOrder';
+import FarmerCard from '../unused components/FarmerCard';
+// import CustomerOrder from '../unused components/CustomerOrder';
 import CustomerDashboard from './CustomerDashboard';
 
 import { Link, Route } from "react-router-dom";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-import ProduceCard from "../FarmerComponents/ProduceCard"
+import ProduceCard from "../FarmerComponents/ProduceCard";
 
 export default function AvailableFarmers() {
 
