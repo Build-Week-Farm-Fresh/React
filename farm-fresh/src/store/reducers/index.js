@@ -2,6 +2,9 @@ import {
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
+  CUSTOMER_LOGIN_START,
+  CUSTOMER_LOGIN_SUCCESS,
+  CUSTOMER_LOGIN_ERROR,
   LOGOUT
 } from '../actions';
 
@@ -33,6 +36,26 @@ const reducer = (state = initialState, action) => {
         ...state,
         loginStart: false,
         loginError: true
+      };
+
+      case CUSTOMER_LOGIN_START:
+      return {
+        ...state,
+        customerLoginStart: true
+      };
+
+    case CUSTOMER_LOGIN_SUCCESS:
+      return {
+        ...state,
+        customerLoginStart: false,
+        token: action.payload
+      };
+
+    case CUSTOMER_LOGIN_ERROR:
+      return {
+        ...state,
+        customerLoginStart: false,
+        customerLoginError: true
       };
 
     case LOGOUT:
