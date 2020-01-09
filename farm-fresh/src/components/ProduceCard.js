@@ -6,7 +6,7 @@ export default function ProduceCard({ ProduceData }) {
         <div className="produce_card">
             <Card>
                 <CardTitle>Name: {ProduceData.name}</CardTitle>
-                <CardImg src={ProduceData.image} />
+                {/* <CardImg src={ProduceData.image} /> */}
                 <CardBody>
                     <CardText>Price: {ProduceData.price} </CardText>
                     {/* <CardText>Available quantity: {ProduceData.quantity} </CardText> */}
