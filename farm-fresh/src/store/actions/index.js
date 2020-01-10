@@ -12,7 +12,7 @@ export const login = (userCreds, history) => dispatch => {
     .then(res=> {
         console.log(res)
         setTimeout(()=>{
-            dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data })
             localStorage.setItem("token", res.data.token)
             history.push('/farmer-dashboard')
         }, 500)

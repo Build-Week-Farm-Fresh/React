@@ -6,7 +6,7 @@ import FarmerCard from '../unused components/FarmerCard';
 import CustomerDashboard from './CustomerDashboard';
 
 import { Link, Route } from "react-router-dom";
-import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import axiosWithAuth from "../../utils/axiosWithAuth"; 
 import ProduceCard from "../FarmerComponents/ProduceCard";
 
 export default function AvailableFarmers() {
