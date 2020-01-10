@@ -1,70 +1,75 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react"
+import axiosWithAuth from '../../utils/axiosWithAuth'
 
-function EditProduce(props) {
-  const [produceDetails, setProduceDetails] = useState({
-    name: "",
-    price: "",
-    quantity: ""
-  });
-  console.log(props)
-  useEffect(() => {
-    fetchProduce(props.match.params.id);
-  }, [props.match.params.id]);
+export default function EditProduce(props) {
+	const [produceDetails, setProduceDetails] = useState({
+		name: "", 
+		price: null,
+		quantity: null,
+	})
 
-  const fetchProduce = id => {
-    axiosWithAuth()
-      .get(`/produce/${id}`)
-      .then(res => {
-        console.log(res.data)
-        setProduceDetails(res.data)
-      })
-      .catch(err => console.error(err));
-  };
+	useEffect(() => {
+		axiosWithAuth()
+			.get(`/produce/${props.match.params.id}`)
+			.then((result) => {
+				setProduceDetails(result.data)
+			})
+			.catch((error) => {
+				console.log(error)
+			})
+	}, [props.match.params.id])
 
-  const onChange = e => {
-    setProduceDetails({ ...produceDetails, [e.target.name]: e.target.value });
-  };
+	const handleChange = (event) => {
+		setProduceDetails({
+			...produceDetails,
+			[event.target.name]: event.target.value,
+		})
+	}
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    axios
-      .put(`/produce/${produceDetails.id}`, produceDetails)
-      .then(() => props.history.push(`/produce/${produceDetails.id}`));
-  };
+	const handleSubmit = (event) => {
+		event.preventDefault()
 
-  return (
-    <>
-      <h1>Edit Produce</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <input
-            type="text"
-            name="name"
-            value={produceDetails.name}
-            onChange={onChange}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            name="price"
-            value={produceDetails.price}
-            onChange={onChange}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            name="quantity"
-            value={produceDetails.quantity}
-            onChange={onChange}
-          />
-        </div>
-        <button>Save Changes</button>
-      </form>
-    </>
-  );
+		axiosWithAuth()
+			.put(`/produce/${produceDetails.id}`, produceDetails)
+			.then((result) => {
+
+				props.history.push("/myproduce")
+			})
+			.catch((error) => {
+				console.log(error)
+			})
+	}
+
+	return (
+		<>
+			<h1>Update Produce</h1>
+
+			<form onSubmit={handleSubmit}>
+				<input
+					type="text"
+					name="name"
+					placeholder="Update Produce Name"
+					value={produceDetails.name}
+					onChange={handleChange}
+				/>
+				<input
+					type="text"
+					name="price"
+					placeholder="Update Price"
+					value={produceDetails.price}
+					onChange={handleChange}
+				/>
+        <input
+					type="text"
+					name="quantity"
+					placeholder="Update Quantity"
+					value={produceDetails.quantity}
+					onChange={handleChange}
+				/>
+
+				<button type="submit">Save Changes</button>
+			</form>
+		</>
+	)
 }
 
-export default EditProduce();

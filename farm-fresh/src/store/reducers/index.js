@@ -10,6 +10,7 @@ import {
 
 const initialState = {
   token: null,
+  farmerID: null,
   loginStart: false,
   loginError: false,
   getProduceStart: false,
@@ -28,7 +29,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loginStart: false,
-        token: action.payload
+        token: action.payload.token,
+        farmerID: action.payload.id
       };
 
     case LOGIN_ERROR:
