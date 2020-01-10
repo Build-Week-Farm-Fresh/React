@@ -2,15 +2,17 @@ import React from 'react';
 import './App.css';
 import { logout } from './store/actions'
 import { connect } from 'react-redux'
-// import Loader from 'react-loader-spinner'
-import { Link, Route, withRouter, Switch } from "react-router-dom"
+import { Route, withRouter, Switch } from "react-router-dom"
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import PrivateRoute from './utils/PrivateRoute'
+
 import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
 import FarmerDashboard from './components/FarmerComponents/FarmerDashboard'
 import CustomerDashboard from './components/CustomerComponents/CustomerDashboard'
-import PrivateRoute from './utils/PrivateRoute'
-// import FarmerCard from '../src/components/FarmerComponents/FarmerCard';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import CustomerLandingPage from './components/CustomerComponents/CustomerLandingPage';
 import FarmerProduceList from './components/FarmerComponents/FarmerProduceList'
 import CustomerLogin from './components/user-forms/CustomerLogin'
@@ -41,6 +43,7 @@ function App(props) {
         <Route path="/customer-login" component={CustomerLogin} />
         <PrivateRoute path="/farmer-dashboard" component={FarmerDashboard} />
         <PrivateRoute path="/customer-dashboard" component={CustomerLandingPage} />
+        <PrivateRoute path="/dashboard" component={CustomerDashboard} />
         <PrivateRoute path="/myproduce" exact component={localStorage.getItem("token") ? FarmerProduceList : FarmerLogin}
         />
       </Switch>

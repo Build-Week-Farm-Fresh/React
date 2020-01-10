@@ -13,3 +13,18 @@
 .on-submit {
   width: 100px;
 }
+
+/* 
+.zipForm {
+  input:invalid{
+  border: 2px dashed red;
+    };
+    
+    input:invalid:required{
+  background-image: linear-gradient(to right, pink, orange)
+  };
+    
+    input:valid{
+  border: 3px solid black;
+    };
+} */

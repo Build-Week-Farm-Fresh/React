@@ -1,14 +1,18 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import '../../App.css'
+import * as yup from 'yup';
+import styled from '@emotion/styled';
 
 export default function CustomerDashboard() {
 
   const [zip, setZip] = useState({
-    zipCode: "12345"
+    zipCode: ""
   });
 
   const [zips, setZips] = useState([]);
+  const [error, setError] = useState(false)
 
   const zipChange = event => {
     setZip({ ...zip, [event.target.name]: event.target.value });
@@ -21,36 +25,50 @@ export default function CustomerDashboard() {
       zipcode: zip.zipCode
     }
     const allTheZips = [...zips, newZip];
-
     setZips(allTheZips);
   }
 
 
   const submitZip = event => {
     event.preventDefault();
+    setError(false)
+    if (isValidUSZip(zip.zipCode) === false) {
+      setError(true)
+      return
+    }
     addNewZip()
-    console.log('zip', zip);
-    console.log('zips', zips);
+    setZip({ zipCode: "" })
+  }
+
+
+  function isValidUSZip(sZip) {
+    return /^\d{5}(-\d{4})?$/.test(sZip);
   }
 
   return (
     <>
       <h1>My Dashboard</h1>
-      <form onSubmit={submitZip}>
+
+      {error && <p>Opps! Not a valid zipcode </p>}
+      <form className="zipForm" onSubmit={submitZip}>
         <input
           type="text"
+          required
+          // pattern="/^\d{5}"
+          maxlength='5'
           name="zipCode"
-          placeholder="Zip Code"
+          placeholder="5-digit zip code"
           value={zip.zipCode}
           onChange={zipChange}
         />
-        <button>Find Produce</button>
+        <button>Find Farmers(maybe)</button>
+
+
       </form>
-      <Link to="/order/">
+      <Link to="/">
         <button>Shopping Cart</button>
       </Link>
     </>
   )
 
 }
-
