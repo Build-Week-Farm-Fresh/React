@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import axiosWithAuth from "../../utils/axiosWithAuth";
 import AddProduce from './AddProduce'
 import {Link} from "react-router-dom"
+import styled from "styled-components"
+
 
 
 export default function FarmerProduceList() {
@@ -43,26 +45,38 @@ export default function FarmerProduceList() {
 		}
     }
     
-    if (!produceList) {
-        return <div>Farmer had a sad harvest &#128577 </div>
-    }
-
     return (
         <div>
             <h1>My Produce</h1>
             <AddProduce setProduceList={setProduceList}/>
-            {produceList.map((produceItem) => (
-                <div key={produceItem.id}>
-                    <Link to={`/editproduce/${produceItem.id}`}>
-                        <button>edit</button>
-                    </Link>
-                    <button onClick={e => handleDelete(e, produceItem.id)}>delete</button> 
-                    <p>{produceItem.name}</p>
-                    <p>{produceItem.price}</p>
-                    <p>{produceItem.quantity}</p>
-                </div>
-            ))}
+            <ProduceCard>
+                {produceList.map((produceItem) => (
+                    <ProduceDiv key={produceItem.id}>
+                        <h5>{produceItem.name}</h5>
+                        <p>Price: ${produceItem.price}</p>
+                        <p>Qty Available: {produceItem.quantity}</p>
+                        <Link to={`/editproduce/${produceItem.id}`}>
+                            <button>edit</button>
+                        <button onClick={e => handleDelete(e, produceItem.id)}>delete</button> 
+                        </Link>
+                    </ProduceDiv>
+                ))}
+            </ProduceCard>
         </div>
     );
 }
 
+const ProduceDiv = styled.div`
+    width: 200px;
+    padding: 20px;
+    border: 1px solid black;
+    margin: 7px;
+`
+const ProduceCard = styled.div`
+    width: 100%
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse
+    justify-content: center;
+
+`

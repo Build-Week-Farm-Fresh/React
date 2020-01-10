@@ -17,6 +17,7 @@ import FarmerProduceList from './components/FarmerComponents/FarmerProduceList'
 import CustomerLogin from './components/user-forms/CustomerLogin'
 import AddProduce from './components/FarmerComponents/AddProduce'
 import EditProduce from './components/FarmerComponents/EditProduce'
+import FarmLogo from '../src/components/user-forms/farm-fresh-logo.png';
 
 function App(props) {
 
@@ -29,14 +30,20 @@ function App(props) {
         width: '100%',
         height: '100vh'
       }}>
-        <Loader type="Puff" width={100} height={100} />
+        <Loader type="Circles" width={150} height={150} />
       </div>
     )
   }
   return (
     <div className="App">
-      <nav>
-        <p onClick={() => { props.logout(props.history) }}>LOG OUT</p>
+      <nav className="header-nav">
+        <div className="logo">
+          <img width="150px" src={FarmLogo} alt="Farm Fresh logo" />
+        </div>
+        <div className="links">
+          <a className="marketing-page" href="https://elegant-mclean-7965e9.netlify.com/index.html">ABOUT FARM FRESH</a>
+          <p onClick={() => { props.logout(props.history) }}>LOG OUT</p>
+        </div> 
       </nav>
       <Switch>
         <Route exact path="/" component={FarmerOrConsumer} />

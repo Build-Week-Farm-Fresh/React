@@ -15,7 +15,7 @@ export const login = (userCreds, history) => dispatch => {
             dispatch({ type: LOGIN_SUCCESS, payload: res.data })
             localStorage.setItem("token", res.data.token)
             history.push('/farmer-dashboard')
-        }, 500)
+        }, 250)
     })
     .catch(err=>dispatch({ type: LOGIN_ERROR }))
 }

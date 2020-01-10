@@ -1,5 +1,7 @@
 .App {
+  height: 100%;
   text-align: center;
+  color: black;
 }
 
 .login-form {
@@ -13,3 +15,41 @@
 .on-submit {
   width: 100px;
 }
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 50%;
+  height: 70%;
+}
+
+.marketing-page {
+  color: black;
+  margin: 20px 0 20px 0;
+}
+
+.marketing-page:hover {
+  text-decoration: none;
+  color: black;
+}
+
+div.links p:hover{
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 30%;
+  padding: 5px;
+}
+
