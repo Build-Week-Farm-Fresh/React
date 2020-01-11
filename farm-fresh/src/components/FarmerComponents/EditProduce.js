@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
-import axiosWithAuth from '../../utils/axiosWithAuth'
+import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 export default function EditProduce(props) {
 	const [produceDetails, setProduceDetails] = useState({
-		name: "", 
+		name: "",
 		price: null,
 		quantity: null,
 	})
@@ -59,7 +59,7 @@ export default function EditProduce(props) {
 					value={produceDetails.price}
 					onChange={handleChange}
 				/>
-        <input
+				<input
 					type="text"
 					name="quantity"
 					placeholder="Update Quantity"

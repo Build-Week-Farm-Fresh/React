@@ -1,16 +1,17 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { Button } from 'reactstrap';
 
 export default function FarmerDashboard() {
-  return(
+  return (
     <div>
       <h1>Farmer Dashboard</h1>
-      <button>Current Orders</button>
+      <Button color="danger">Current Orders</Button>
       <Link to="/myproduce">
-        <button>My Produce</button>
+        <Button color="success">My Produce</Button>
       </Link>
     </div>
 
-    
+
   )
 }
