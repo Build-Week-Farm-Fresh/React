@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axiosWithAuth from '../../utils/AxiosWithAuth';
 import AddProduce from './AddProduce'
 import { Link } from "react-router-dom"
-
+import { Card, CardTitle, CardImg, CardBody, CardText, Button, Row, Col } from 'reactstrap';
 
 export default function FarmerProduceList() {
 
@@ -52,17 +52,35 @@ export default function FarmerProduceList() {
             <h1>My Produce</h1>
             <AddProduce setProduceList={setProduceList} />
             {produceList.map((produceItem) => (
-                <div key={produceItem.id}>
-                    <Link to={`/editproduce/${produceItem.id}`}>
-                        <button>edit</button>
-                    </Link>
-                    <button onClick={e => handleDelete(e, produceItem.id)}>delete</button>
-                    <p>{produceItem.name}</p>
-                    <p>{produceItem.price}</p>
-                    <p>{produceItem.quantity}</p>
-                </div>
+                <Row>
+                    <Col>
+                        <Card style={{ width: '600px', margin: '0 0 0 579px ' }}>
+                            <div key={produceItem.id}>
+                                <CardTitle><h5>Name:</h5> {produceItem.name}</CardTitle>
+                                <CardBody style={{ backgroundColor: ' #ebebc5 ' }}>
+                                    <CardText><h5>Price:</h5> {produceItem.price}</CardText>
+                                    <CardText><h5>Available quantity:</h5> {produceItem.quantity}</CardText>
+                                </CardBody>
+                                <Button color="info"><Link to={`/editproduce/${produceItem.id}`}>edit</Link></Button>
+                                <Button color='danger' onClick={e => handleDelete(e, produceItem.id)}>delete</Button>
+                            </div>
+                        </Card>
+                    </Col>
+                    {/* <Col sm='6'>
+                        <Card>
+                            <div key={produceItem.id}>
+                                <CardTitle><h5>Name:</h5> {produceItem.name}</CardTitle>
+                                <CardBody>
+                                    <CardText><h5>Price:</h5> {produceItem.price}</CardText>
+                                    <CardText><h5>Available quantity:</h5> {produceItem.quantity}</CardText>
+                                </CardBody>
+                                <Button color="info"><Link to={`/editproduce/${produceItem.id}`}>edit</Link></Button>
+                                <Button color='danger' onClick={e => handleDelete(e, produceItem.id)}>delete</Button>
+                            </div>
+                        </Card>
+                    </Col> */}
+                </Row>
             ))}
         </div>
     );
 }
-
