@@ -32,7 +32,7 @@ function App(props) {
         width: '100%',
         height: '100vh'
       }}>
-        <Loader type="Puff" width={100} height={100} />
+        {/* <Loader type="Puff" width={100} height={100} /> */}
       </div>
     )
   }
@@ -52,8 +52,8 @@ function App(props) {
 
 
         <PrivateRoute path="/myproduce" component={localStorage.getItem("token") ? FarmerProduceList : FarmerLogin} />
-        <PrivateRoute path="/addproduce" component={AddProduce}/>
-        <PrivateRoute path="/editproduce/:id" component={EditProduce}/>
+        <PrivateRoute path="/addproduce" component={AddProduce} />
+        <PrivateRoute path="/editproduce/:id" component={EditProduce} />
 
 
       </Switch>

@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Button } from 'reactstrap';
 import '../../App.css'
 import * as yup from 'yup';
 import styled from '@emotion/styled';
@@ -48,25 +49,23 @@ export default function CustomerDashboard() {
   return (
     <>
       <h1>My Dashboard</h1>
-
       {error && <p>Opps! Not a valid zipcode </p>}
       <form className="zipForm" onSubmit={submitZip}>
         <input
           type="text"
           required
-          // pattern="/^\d{5}"
           maxlength='5'
           name="zipCode"
           placeholder="5-digit zip code"
           value={zip.zipCode}
           onChange={zipChange}
         />
-        <button>Find Farmers(maybe)</button>
-
-
+        <br />
+        <Button color="success">Find Farmers(maybe)</Button>
       </form>
+      <br />
       <Link to="/">
-        <button>Shopping Cart</button>
+        <Button color="danger">Shopping Cart</Button>
       </Link>
     </>
   )
