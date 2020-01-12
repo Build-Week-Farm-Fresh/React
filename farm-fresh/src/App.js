@@ -7,9 +7,11 @@ import FarmLogo from '../src/assets/farm-fresh-logo.png';
 
 import { logout } from './store/actions'
 import { connect } from 'react-redux'
+
 import { Route, withRouter, Switch } from "react-router-dom"
 import PrivateRoute from './utils/PrivateRoute'
 
+import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
 
 import AddProduce from './components/FarmerComponents/AddProduce'
@@ -18,6 +20,7 @@ import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerDashboard from './components/FarmerComponents/FarmerDashboard'
 import FarmerProduceList from './components/FarmerComponents/FarmerProduceList'
 
+import CustomerDashboard from './components/CustomerComponents/CustomerDashboard'
 import CustomerLandingPage from './components/CustomerComponents/CustomerLandingPage';
 import CustomerLogin from './components/user-forms/CustomerLogin'
 
@@ -47,10 +50,10 @@ function App(props) {
         <Route path="/customer-login" component={CustomerLogin} />
         <PrivateRoute path="/farmer-dashboard" component={FarmerDashboard} />
         <PrivateRoute path="/customer-dashboard" component={CustomerLandingPage} />
+        <PrivateRoute path="/dashboard" component={CustomerDashboard} />
         <PrivateRoute path="/myproduce" component={localStorage.getItem("token") ? FarmerProduceList : FarmerLogin} />
-        <PrivateRoute path="/addproduce" component={AddProduce}/>
-        <PrivateRoute path="/editproduce/:id" component={EditProduce}/>
-
+        <PrivateRoute path="/addproduce" component={AddProduce} />
+        <PrivateRoute path="/editproduce/:id" component={EditProduce} />
       </Switch>
     </div>
   );
@@ -63,65 +66,3 @@ export default connect(
   { logout }
 )(withRouter(App))
 
-
-
-// ENDPOINTS!!
-// ----------------------------------------------------------------------------
-// Farmer
-// ----------------------------------------------------------------------------
-
-// - CRUD produce from my inventory
-//   - POST e.g.:
-//     {
-//       name: "",
-//       farmer_id: "",
-//       location: ""
-//     }
-//   - GET (all, individual item?)
-//   - PUT e.g.:
-//     {
-//       id: "",
-//       name: "",
-//       farmer_id: "",
-//       location: ""
-//     }
-//   - DELETE (grab produce_id from route)
-// - view orders for my produce
-//   - GET
-
-// ----------------------------------------------------------------------------
-// Consumer
-// ----------------------------------------------------------------------------
-
-// - view produce local to me
-//   - GET (all produce)
-// - add produce to shopping cart
-//   - Context API 
-// - place an order
-//   - POST e.g.:
-//   {
-//     items: [
-//       { name: "Apple", farmer_id: "1" },
-//       { name: "Carrot", farmer_id: "1" }
-//     ],
-//     consumer_id: 2
-//   }
-
-
-
-// ----------------------------------------------------------------------------
-// Auth
-// ----------------------------------------------------------------------------
-
-// - register
-//   - POST e.g.:
-//     {
-//       username: "test@testing.com",
-//       password: "test"
-//     }
-// - login
-//   - POST e.g.:
-//         {
-//       username: "test@testing.com",
-//       password: "test"
-//     }

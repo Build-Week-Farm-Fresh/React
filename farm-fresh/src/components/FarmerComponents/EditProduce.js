@@ -77,7 +77,6 @@ export default function EditProduce(props) {
           value={produceDetails.quantity}
           onChange={handleChange}
         />
-
         <button type="submit">Save Changes</button>
       </form>
     </div>

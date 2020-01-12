@@ -1,23 +1,18 @@
 // farmer name, farmer location, farmer items
 import React, { useState, useEffect } from "react";
-import { Link, Route } from "react-router-dom";
-import axiosWithAuth from "../../utils/axiosWithAuth"; 
+import { Button, CardImg } from 'reactstrap';
+
+import { Link, Route, Switch } from "react-router-dom";
+import PrivateRoute from '../../utils/PrivateRoute';
+import axiosWithAuth from '../../utils/AxiosWithAuth';
 
 import CustomerDashboard from './CustomerDashboard';
 import ProduceCard from "../FarmerComponents/ProduceCard";
 
-
-export default function AvailableFarmers() {
-
-    const [farmers] = useState([]);
-
+export default function AvailableProduce() {
     const [order, setOrder] = useState([]);
 
-
     useEffect(() => {
-
-
-
         axiosWithAuth()
             .get(`/produce/user/1`)
             .then(response => {
@@ -29,12 +24,20 @@ export default function AvailableFarmers() {
             })
     }, []);
 
-    if (!farmers) {
-        return <div>No farmers in your area... </div>
+    if (!order) {
+        return <div>No orders yet... </div>
     }
 
     return (
         <section className="farmer-list">
+            <Link to="/">Home Page</Link><br />
+            <Link to="/dashboard/">Your Dashboard</Link><br />
+
+            <Switch>
+                <Route exact path="/" />
+                <Route exact path="/dashboard/" component={CustomerDashboard} />
+            </Switch>
+
             <div>
                 {order.map(item => {
                     return (
@@ -42,15 +45,6 @@ export default function AvailableFarmers() {
                     )
                 })}
             </div>
-
-            <Link to="/">Customer Page</Link><br />
-            <Link to="/order/">Current Order</Link><br />
-            <Link to="/dashboard/">Your Dashboard</Link><br />
-
-
-            <Route exact path="/" />
-            {/* <Route exact path="/order/" render={props => <CustomerOrder />} /> */}
-            <Route exact path="/dashboard/" render={props => <CustomerDashboard />} />
 
         </section>
     );
