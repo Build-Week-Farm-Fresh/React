@@ -1,35 +1,31 @@
 import React from 'react';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Loader from 'react-loader-spinner'
+import FarmLogo from '../src/assets/farm-fresh-logo.png';
+
 import { logout } from './store/actions'
 import { connect } from 'react-redux'
-import Loader from 'react-loader-spinner'
-import { Link, Route, withRouter, Switch } from "react-router-dom"
-import FarmerLogin from "./components/user-forms/FarmerLogin"
-import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
-import FarmerDashboard from './components/FarmerComponents/FarmerDashboard'
-import CustomerDashboard from './components/CustomerComponents/CustomerDashboard'
+import { Route, withRouter, Switch } from "react-router-dom"
 import PrivateRoute from './utils/PrivateRoute'
-// import FarmerCard from '../src/components/FarmerComponents/FarmerCard';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import CustomerLandingPage from './components/CustomerComponents/CustomerLandingPage';
-import FarmerProduceList from './components/FarmerComponents/FarmerProduceList'
-import CustomerLogin from './components/user-forms/CustomerLogin'
+
+import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
+
 import AddProduce from './components/FarmerComponents/AddProduce'
 import EditProduce from './components/FarmerComponents/EditProduce'
-import FarmLogo from '../src/components/user-forms/farm-fresh-logo.png';
+import FarmerLogin from "./components/user-forms/FarmerLogin"
+import FarmerDashboard from './components/FarmerComponents/FarmerDashboard'
+import FarmerProduceList from './components/FarmerComponents/FarmerProduceList'
+
+import CustomerLandingPage from './components/CustomerComponents/CustomerLandingPage';
+import CustomerLogin from './components/user-forms/CustomerLogin'
 
 function App(props) {
 
   if (props.loginStart) {
     return (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        height: '100vh'
-      }}>
+      <div className="loader">
         <Loader type="Circles" width={150} height={150} />
       </div>
     )

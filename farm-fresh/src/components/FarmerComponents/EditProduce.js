@@ -1,101 +1,97 @@
-import React, { useState, useEffect } from "react"
-import axiosWithAuth from '../../utils/axiosWithAuth'
-import styled from "styled-components"
-import {Link} from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import axiosWithAuth from "../../utils/axiosWithAuth";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function EditProduce(props) {
+  const [produceToEdit, setProduceToEdit] = useState([]);
 
-	const [produceToEdit, setProduceToEdit] = useState([])
+  const [produceDetails, setProduceDetails] = useState({
+    name: "",
+    price: "",
+    quantity: ""
+  });
 
-	const [produceDetails, setProduceDetails] = useState({
-		name: "", 
-		price: "",
-		quantity: "",
-	})
+  useEffect(() => {
+    axiosWithAuth()
+      .get(`/produce/${props.match.params.id}`)
+      .then(result => {
+        setProduceDetails(result.data);
+        setProduceToEdit(result.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }, [props.match.params.id]);
 
-	useEffect(() => {
-		axiosWithAuth()
-			.get(`/produce/${props.match.params.id}`)
-			.then((result) => {
-				setProduceDetails(result.data)
-				setProduceToEdit(result.data)
-			})
-			.catch((error) => {
-				console.log(error)
-			})
-	}, [props.match.params.id])
+  const handleChange = e => {
+    setProduceDetails({
+      ...produceDetails,
+      [e.target.name]: e.target.value
+    });
+  };
 
-	const handleChange = (event) => {
-		setProduceDetails({
-			...produceDetails,
-			[event.target.name]: event.target.value,
-		})
-	}
+  const handleSubmit = e => {
+    e.preventDefault();
 
-	const handleSubmit = (event) => {
-		event.preventDefault()
+    axiosWithAuth()
+      .put(`/produce/${produceDetails.id}`, produceDetails)
+      .then(result => {
+        props.history.push("/myproduce");
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
 
-		axiosWithAuth()
-			.put(`/produce/${produceDetails.id}`, produceDetails)
-			.then((result) => {
+  return (
+    <div>
+      <Link to="/myproduce">
+        <Return>
+          Back to Produce List <i class="fas fa-undo"></i>
+        </Return>
+      </Link>
+      <h2>Update {produceToEdit.name}</h2>
+      <p>Current Price: ${produceToEdit.price}</p>
+      <p>Current Quantity Available: {produceToEdit.quantity}</p>
 
-				props.history.push("/myproduce")
-			})
-			.catch((error) => {
-				console.log(error)
-			})
-	}
+      <form onSubmit={handleSubmit}>
+        <Edit
+          type="text"
+          name="name"
+          placeholder="Update Produce Name"
+          value={produceDetails.name}
+          onChange={handleChange}
+        />
+        <Edit
+          type="text"
+          name="price"
+          placeholder="Update Price"
+          value={produceDetails.price}
+          onChange={handleChange}
+        />
+        <Edit
+          type="text"
+          name="quantity"
+          placeholder="Update Quantity"
+          value={produceDetails.quantity}
+          onChange={handleChange}
+        />
 
-	return (
-		<EditPage>
-			<Link to="/myproduce">
-				<p>Back to Produce List</p>
-			</Link>
-			<h2>Update {produceToEdit.name}</h2>
-			<p>Current Price: ${produceToEdit.price}</p>
-			<p>Current Quantity Available: {produceToEdit.quantity}</p>
-
-				<EditCard onSubmit={handleSubmit}>
-					<Edit
-						type="text"
-						name="name"
-						placeholder="Update Produce Name"
-						value={produceDetails.name}
-						onChange={handleChange}
-					/>
-					<Edit
-						type="text"
-						name="price"
-						placeholder="Update Price"
-						value={produceDetails.price}
-						onChange={handleChange}
-					/>
-					<Edit
-						type="text"
-						name="quantity"
-						placeholder="Update Quantity"
-						value={produceDetails.quantity}
-						onChange={handleChange}
-					/>
-
-					<button type="submit">Save Changes</button>
-				</EditCard>
-		</EditPage>
-	)
+        <button type="submit">Save Changes</button>
+      </form>
+    </div>
+  );
 }
 
-const EditPage = styled.div`
-	width: 100%
-`
-
 const Edit = styled.input`
-	display: flex;
-	flex-direction: column;
-	width: 400px;
-	text-align: center;
-	margin: 15px auto;
-`
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  text-align: center;
+  margin: 15px auto;
+`;
 
-const EditCard = styled.form`
-	width: 100%;
-`
+const Return = styled.p`
+  color: orange;
+`;
