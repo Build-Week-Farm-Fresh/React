@@ -4,10 +4,10 @@ import { Button, CardImg } from 'reactstrap';
 
 import { Link, Route, Switch } from "react-router-dom";
 import PrivateRoute from '../../utils/PrivateRoute';
-import axiosWithAuth from '../../utils/AxiosWithAuth';
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
 import CustomerDashboard from './CustomerDashboard';
-import ProduceCard from "../FarmerComponents/ProduceCard";
+import ProduceCard from "./ProduceCard"
 
 export default function AvailableProduce() {
     const [order, setOrder] = useState([]);

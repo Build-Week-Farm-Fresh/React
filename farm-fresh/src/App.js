@@ -11,7 +11,6 @@ import { connect } from 'react-redux'
 import { Route, withRouter, Switch } from "react-router-dom"
 import PrivateRoute from './utils/PrivateRoute'
 
-import FarmerLogin from "./components/user-forms/FarmerLogin"
 import FarmerOrConsumer from './components/user-forms/FarmerOrConsumer'
 
 import AddProduce from './components/FarmerComponents/AddProduce'

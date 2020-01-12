@@ -3,8 +3,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from 'reactstrap';
 import '../../App.css'
-import * as yup from 'yup';
-import styled from '@emotion/styled';
 
 export default function CustomerDashboard() {
 

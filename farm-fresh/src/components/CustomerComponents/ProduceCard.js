@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Card, CardBody, CardTitle, CardText} from 'reactstrap';
+import { Card, CardBody, CardTitle, CardText, CardImg, Button, Row, Col } from 'reactstrap';
 
 export default function ProduceCard({ ProduceData }) {
     return (
@@ -8,7 +8,7 @@ export default function ProduceCard({ ProduceData }) {
             <Col sm='6'>
                 <Card>
                     <CardTitle>Name: {ProduceData.name}</CardTitle>
-                    <CardImg width="50%" src="" alt='Just imagine a `${ProduceData.name}` here' />
+                    {/* <CardImg width="50%" src="" alt='Just imagine a `${ProduceData.name}` here' /> */}
                     <CardBody style={{ backgroundColor: '#333', borderColor: '#333' }}>
                         <CardText>Price: {ProduceData.price} </CardText>
                         <CardText>Available quantity: {ProduceData.quantity} </CardText>
@@ -20,7 +20,7 @@ export default function ProduceCard({ ProduceData }) {
             <Col sm='6'>
                 <Card>
                     <CardTitle>Name: {ProduceData.name}</CardTitle>
-                    <CardImg width="50%" src="" alt='Just imagine a `${ProduceData.name}` here' />
+                    {/* <CardImg width="50%" src="" alt='Just imagine a `${ProduceData.name}` here' /> */}
                     <CardBody>
                         <CardText>Price: {ProduceData.price} </CardText>
                         <CardText>Available quantity: {ProduceData.quantity} </CardText>
