@@ -1,17 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom"
-import { Button } from 'reactstrap';
+
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 export default function FarmerDashboard() {
   return (
     <div>
       <h1>Farmer Dashboard</h1>
-      <Button color="danger">Current Orders</Button>
+      <FarmerBtn>Current Orders</FarmerBtn>
       <Link to="/myproduce">
-        <Button color="success">My Produce</Button>
+        <FarmerBtn>My Produce</FarmerBtn>
       </Link>
     </div>
-
-
-  )
+  );
 }
+
+const FarmerBtn = styled.button`
+  width: 300px;
+  margin: 40px;
+  border-radius: 25px;
+`;

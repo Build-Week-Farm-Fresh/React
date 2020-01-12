@@ -10,9 +10,7 @@ import CustomerDashboard from './CustomerDashboard';
 import ProduceCard from "../FarmerComponents/ProduceCard";
 
 export default function AvailableProduce() {
-
     const [order, setOrder] = useState([]);
-
 
     useEffect(() => {
         axiosWithAuth()

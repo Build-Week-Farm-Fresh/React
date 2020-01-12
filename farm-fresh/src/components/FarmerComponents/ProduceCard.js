@@ -1,5 +1,6 @@
 import React from "react";
-import { Card, CardBody, CardTitle, CardText, CardImg, Button, Row, Col } from 'reactstrap';
+
+import { Card, CardBody, CardTitle, CardText} from 'reactstrap';
 
 export default function ProduceCard({ ProduceData }) {
     return (
