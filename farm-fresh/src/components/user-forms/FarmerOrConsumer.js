@@ -9,12 +9,12 @@ export default function Login() {
       <PickUser>
         <div>
           <Link to="/farmer-login">
-            <StyledButton>Farmer <i class="fas fa-tractor"></i></StyledButton>
+            <StyledButton>Farmer <i className="fas fa-tractor"></i></StyledButton>
           </Link>
         </div>
         <div>
           <Link to="/customer-login">
-            <StyledButton>Customer <i class="fas fa-shopping-cart"></i></StyledButton>
+            <StyledButton>Customer <i className="fas fa-shopping-cart"></i></StyledButton>
           </Link>
         </div>
       </PickUser>
