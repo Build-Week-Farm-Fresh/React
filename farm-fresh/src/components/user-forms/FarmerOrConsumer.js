@@ -5,16 +5,16 @@ import styled from "styled-components";
 export default function Login() {
   return (
     <div>
-      <h3>Please choose an option below</h3>
+      <h3>Are you a <span style={{color: 'orange', borderBottom: '2px solid'}}>Farmer</span> or <span style={{color: 'orange', borderBottom: '2px solid'}}>Customer</span>?</h3>
       <PickUser>
         <div>
           <Link to="/farmer-login">
-            <StyledButton>Farmer</StyledButton>
+            <StyledButton>Farmer <i class="fas fa-tractor"></i></StyledButton>
           </Link>
         </div>
         <div>
           <Link to="/customer-login">
-            <StyledButton>Customer</StyledButton>
+            <StyledButton>Customer <i class="fas fa-shopping-cart"></i></StyledButton>
           </Link>
         </div>
       </PickUser>
